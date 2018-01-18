@@ -1,0 +1,16 @@
+{
+    "require": {
+        "symfony/var-dumper": "^3.4",
+        "twig/twig": "^1.35",
+        "symfony/yaml": "^3.4",
+        "guzzle/guzzle": "^3.9",
+        "guzzlehttp/guzzle": "^6.3",
+        "phpunit/phpunit": "^6.5",
+        "setasign/fpdf": "^1.8",
+        "swiftmailer/swiftmailer": "^6.0",
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {"": "src/"}
+    }
+}

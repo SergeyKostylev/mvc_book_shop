@@ -1,0 +1,172 @@
+parameters:
+    database_user: 'root'
+    database_name: 'mvc'
+    database_host: 'localhost'
+    database_password: ~
+    uploads_dir: 'uploads'
+    noreply_email: 'noreply@mvc.com'
+    some_api_key: '5sdf7hsf5s76f5hs7d5f'
+
+
+mailer:
+    email: 'Email'
+    password: 'Password'
+    host: 'smtp.ukr.net'
+    port: 465
+    encryption: 'ssl'
+    allow_self_signe: true
+    verify_peer: false
+
+
+routing:
+    test_route:
+        pattern: /test/{one}/bar/{two}
+        controller: TestController
+        action: testAction
+        parameters:
+            one: '[0-9]+'
+            two: '[a-z]+'
+    homepage:
+        pattern: /
+        controller: DefaultController
+        action: indexAction
+    books_list:
+        pattern: /books
+        controller: BookController
+        action: indexAction
+    feedback:
+        pattern: /feedback
+        controller: DefaultController
+        action: feedbackAction
+    sign_in:
+        pattern: /sign-in
+        controller: SecurityController
+        action: loginAction
+
+    book_item:
+        pattern: /book/{id}
+        controller: BookController
+        action: showAction
+        parameters:
+            id: '[0-9]+'
+
+    cart_add:
+        pattern: /add-to-cart/{id}
+        controller: CartController
+        action: addAction
+        parameters:
+            id: '[0-9]+'
+
+    cart_list:
+        pattern: /cart
+        controller: CartController
+        action: indexAction
+
+
+    cart_delete_item:
+        pattern: /delete-item-cart/{id}
+        controller: CartController
+        action: removeItemAction
+        parameters:
+                    id: '[0-9]+'
+
+    cart_clear:
+        pattern: /clear-cart
+        controller: CartController
+        action: clearAction
+
+    guzzle_api:
+        pattern: /api
+        controller: APIController
+        action: guzzleAction
+
+    pdf_export:
+        pattern: /pdf-export
+        controller: BookController
+        action: pdfExportAction
+
+    download_price:
+        pattern: /excel
+        controller: DefaultController
+        action: priceListAction
+
+    mailer:
+        pattern: /admin/mailer
+        controller: Admin\DefaultController
+        action: mailerAction
+
+
+
+    login_exit:
+        pattern: /logout
+        controller: SecurityController
+        action: logoutAction
+
+
+    registration:
+        pattern: /registration
+        controller: SecurityController
+        action: registrationAction
+
+    dump:
+        pattern: /admin/dump
+        controller: Admin\DefaultController
+        action: getDumpDBAction
+
+    admin_books_list:
+        pattern: /admin/book_list
+        controller: Admin\BookController
+        action: indexAction
+        access: admin
+
+    admin_book_add:
+      pattern: /admin/book_add/
+      controller: Admin\BookController
+      action: addAction
+      access: admin
+
+    admin_book_delete:
+      pattern: /admin/book_delete/{id}
+      controller: Admin\BookController
+      action: deleteAction
+      access: admin
+      parameters:
+          id: '[0-9]+'
+
+    admin_book_edit:
+      pattern: /admin/book_edit/{id}
+      controller: Admin\BookController
+      action: editAction
+      access: admin
+      parameters:
+          id: '[0-9]+'
+
+
+    admin_book_item:
+        pattern: /admin/book/{id}
+        controller: Admin\BookController
+        action: showAction
+        access: admin
+        parameters:
+            id: '[0-9]+'
+
+    admin_homepage:
+        pattern: /admin
+        controller: Admin\DefaultController
+        action: indexAction
+        access: admin
+
+    # api_books:
+    #     pattern: /api/books
+    #     controller: API\BookController
+    #     action: indexAction
+
+    # api_book:
+    #     pattern: /api/books/{id}
+    #     controller: API\BookController
+    #     action: showAction
+    #     parameters:
+    #         id: '[0-9]+'
+
+# GET, PUT, PATCH, DELETE /books/3
+# GET, POST /books

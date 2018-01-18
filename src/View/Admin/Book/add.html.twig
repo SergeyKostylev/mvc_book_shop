@@ -1,0 +1,25 @@
+{% extends'admin_layout.html.twig' %}
+
+{% block content %}
+
+<h1>Add Book</h1>
+
+<form method="post">
+    <input type="text" name="title" placeholder="Title:"/>
+    <input type="number" step="any" min="0" name="price" placeholder="Price:"/>
+    <p><input type="checkbox" name="is_active" value="1">Active</p>
+    <textarea name="description" placeholder="Description:"></textarea>
+    <p>Category
+    <select name="category" size="5">
+        {%  for category in categories  %}
+
+        <option value=" {{ category.getId }} "> {{ category.getName }} </option>
+        {% endfor %}
+    </select>
+    </p>
+    <input type="submit" name="submit"/>
+
+
+</form>
+
+{% endblock %}

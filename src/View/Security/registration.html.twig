@@ -1,0 +1,15 @@
+{% extends'layout.html.twig' %}
+{% block content %}
+<h1>Registration page</h1>
+
+<form  method="post">
+    <input type="text" name="email" placeholder="Email:" value="{{ form.email }}"/>
+    <input type="password" name="password" placeholder="Password:"/>
+    <input type="password" name="repeat_password" placeholder="Repeat password:"/>
+    <input type="submit" name="submit"/>
+</form>
+
+{#<?=\Framework\Session::getFlash()?>#}
+
+
+{% endblock %}

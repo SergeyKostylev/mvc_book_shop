@@ -1,0 +1,55 @@
+{% extends'admin_layout.html.twig' %}
+
+{% block content %}
+
+<h1>Book list</h1>
+
+{#<?=\Framework\Session::getFlash()?>#}
+
+
+<a class="btn btn-primary" href="{{ path('admin_book_add') }}">Add Book</a>
+
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tiile</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Active</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+
+
+
+   {%  for book in books %}
+        <tr>
+
+
+            <td>{{ loop.index }}</td>
+            <td>{{ book.getTitle }}</td>
+            <td>{{ book.getCategory.getName }}</td>
+            <td>{{ book.getPrice }}</td>
+
+            <td>
+
+                <span class= "{{ book.getIsActive ? "text-success" : "text-danger" }}" > {{  book.getIsActive ? "Active" : "No Active" }}</span>
+            </td>
+            <td>
+                <a class="btn btn-outline-info btn-sm" href="{{ path('admin_book_item',{'id' :  book.getId  }) }}">Details</a>
+                <a class="btn btn-outline-warning btn-sm" href="{{ path('admin_book_edit',{'id' : book.getId }) }}">Edit</a>
+                <a class="btn btn-outline-danger btn-sm" href="{{ path ('admin_book_delete',{'id' : book.getId })  }}">Delete</a>
+
+            </td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends'layout.html.twig' %}
+{% block content %}
+
+
+        <h1 class="text-center text-primary">Exchange Rates (api) </h1>
+
+    <table class="table table-sm table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col" class="text-primary">Rate</th>
+        <th scope="col" class="text-primary">Price (UAH)</th>
+    </tr>
+    </thead>
+        <tbody>
+            {% for rate in rates %}
+                <tr>
+                    <th scope="col">{{ loop.index }}</th>
+                    <th scope="col">{{ rate.txt }}</th>
+                    <th scope="col">{{ rate.rate }}</th>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

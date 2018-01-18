@@ -1,0 +1,45 @@
+{% extends'layout.html.twig' %}
+{% block content %}
+
+
+        <h1>Cart</h1>
+
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tiile</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+            <tbody>
+
+
+        {%   for book in books %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ book.getTitle }}</td>
+                <td>{{ book.getCategory().getName() }}</td>
+                <td>{{ book.getPrice() }} $</td>
+
+
+                <td class="text-center"><a class="btn btn-outline-danger btn-sm" href="{{ path('cart_delete_item',{'id' :  book.getId  }) }}"> DELETE </a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+        <td></td>
+        <td></td>
+        <td class="text-danger">Sum Price: </td>
+        <td>{{ sum_price }} $</td>
+        <td class="text-center"><a class="btn btn-outline-danger btn-sm" href="{{ path('cart_clear') }}"> CLEAR CART </a></td>
+            </tr>
+
+            </tbody>
+</table>
+
+
+{% endblock %}
